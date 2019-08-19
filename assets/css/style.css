@@ -1,0 +1,122 @@
+* {
+	box-sizing: inherit;
+}
+
+.pn-ProductNav_Wrapper {
+	position: relative;
+	padding: 0 11px;
+	box-sizing: border-box;
+}
+
+.pn-ProductNav {
+	/* Rolável quando necessário */
+	overflow-x: auto;
+	/* Não é rolagem vertical */
+	overflow-y: hidden;
+	/* Implementações do WebKit, fornecendo a rolagem  */
+	-webkit-overflow-scrolling: touch;
+	/* Não usa elementos inline internos  */
+	white-space: nowrap;
+	/* Se js estiver presente, esconde a barra de rolagem padrão */
+	/* Contexto de posicionamento para os itens */
+	position: relative;
+	font-size: 0;
+}
+
+.js .pn-ProductNav {
+	/* Scroller de auto ocultação para as 3 itens usando um IE */
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	/* Remove a barra de rolagem padrão para implementações do WebKit */
+}
+
+.js .pn-ProductNav::-webkit-scrollbar {
+	display: none;
+}
+
+.pn-ProductNav_Contents {
+	float: left;
+	transition: transform 0.2s ease-in-out;
+}
+
+.pn-ProductNav_Contents-no-transition {
+	transition: none;
+}
+
+.pn-ProductNav_Link {
+	text-decoration: none;
+	color: #111;
+	font-size: 1.2rem;
+	font-family: -apple-system, sans-serif;
+	font-weight: bold;
+	display: inline-flex;
+	align-items: center;
+	min-height: 24px;
+	border: 1px solid transparent;
+	padding: 0 11px;
+}
+
+.pn-ProductNav_Link+.pn-ProductNav_Link {
+	border-left-color: #eee;
+}
+
+.pn-ProductNav_Link[aria-selected="true"] {
+	color: #111;
+}
+
+.pn-Advancer {
+	/* Redefinir o botão */
+	appearance: none;
+	background: transparent;
+	padding: 0;
+	border: 0;
+	/* Estilize conforme o gosto do cidadão */
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	/* Define os botões invisíveis por padrão */
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.pn-Advancer:focus {
+	outline: 0;
+}
+
+.pn-Advancer:hover {
+	cursor: pointer;
+}
+
+.pn-Advancer_Left {
+	left: 0;
+}
+
+[data-overflowing="both"]~.pn-Advancer_Left,
+[data-overflowing="left"]~.pn-Advancer_Left {
+	opacity: 1;
+}
+
+.pn-Advancer_Right {
+	right: 0;
+}
+
+[data-overflowing="both"]~.pn-Advancer_Right,
+[data-overflowing="right"]~.pn-Advancer_Right {
+	opacity: 1;
+}
+
+.pn-Advancer_Icon {
+	width: 20px;
+	height: 44px;
+	fill: #eee;
+}
+
+.pn-ProductNav_Indicator {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 4px;
+	width: 100px;
+	background-color: #eb0000;
+	transform-origin: 0 0;
+	transition: transform 0.2s ease-in-out;
+}
